@@ -1,6 +1,6 @@
 This repository contains a collection of smaller anki add-ons that I have written.
 
-[Rendered Browser](https://link-url-here.org)
+[Rendered Browser](https://ankiweb.net/shared/info/993394845)
 
 [Show Answer With Number Keys](https://ankiweb.net/shared/info/188886658)
 
