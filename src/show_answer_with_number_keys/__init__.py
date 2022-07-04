@@ -3,7 +3,7 @@ from anki.hooks import wrap
 
 
 # function of the shorcut should be different depending on the state of the previewer
-def shortcutFunction(self, response):
+def shortcutFunction(self, response: int) -> None:
     if self.state == "question":
         self._getTypedAnswer()
     elif self.state == "answer":
