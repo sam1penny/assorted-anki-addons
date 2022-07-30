@@ -1,3 +1,5 @@
+import sys
+
 from aqt import gui_hooks
 import aqt
 from aqt.deckbrowser import DeckBrowser
@@ -52,11 +54,12 @@ class Rendered_Browser(QWidget):
         self.layout.addWidget(self.scrollArea)
 
         self.cards = {}
-        ids = aqt.mw.col.db.execute("""
-        SELECT id FROM cards where did = ? ORDER BY id ASC
-        """, self.did)
-        for i in range(len(ids)):
-            card = aqt.mw.col.getCard(ids[i][0])
+
+        card_ids = aqt.mw.col.find_cards(aqt.mw.col.build_search_string("did:" + str(self.did)), order="c.id asc")
+
+
+        for card_id in card_ids:
+            card = aqt.mw.col.getCard(card_id)
             self.cards[card.q() + " " + card.a()] = card
 
         self.displayCards("")
